@@ -165,6 +165,38 @@ int main(){
     }
     return 0;
 }
+
+// Better approach
+vector<int> majorityElement(vector<int> v){
+    int n = v.size();
+    vector<int> ls; // list fo answers
+
+    // declaring the map
+    map<int, int> mpp;
+
+    // least occurrence of majority element
+    int min = int(n / 3) + 1;
+    for(int i = 0; i < n; i++){
+        mpp[v[i]]++;
+
+    // checking if v[i] di the majority element
+    if(mpp[v[i]] == mini){
+        ls.push_back(v[i]);
+    }
+    if(ls.size() == 2) break;
+    }
+    return ls;
+}
+int main()
+{
+    vector<int> arr = {11, 33, 33, 11, 33, 11};
+    vector<int> ans = majorityElement(arr);
+    cout << "The majority elements are: ";
+    for (auto it : ans)
+        cout << it << " ";
+    cout << "\n";
+    return 0;
+}
 int main(){
   return 0;
 }
