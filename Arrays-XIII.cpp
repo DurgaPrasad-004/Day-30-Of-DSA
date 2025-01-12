@@ -54,6 +54,45 @@ int main()
     pascalTriangle(n);
     return 0;
 }
+
+// Optimal approach
+int nCr(int n, int r){
+    long long res = 1;
+
+    // calculating the ncr
+    for(int i =0; i < r; i++){
+        res = res * (n -1);
+        res = res / (i + 1);
+    }
+    return (int)(res);
+}
+
+vector<vector<int>> pascalTriangle(int n){
+    vector<vector<int>> ans;
+
+    // store the entire pascal's triangle
+    for(int row = 1; row <= n; row++){
+        vector<int> tempList; // temporary list
+        for(int col = 1; col <= row; col++){
+            tempList.push_back(nCr(row - 1, col - 1));
+        }
+        ans.push_back(tempList);
+    }
+    return ans;
+}
+
+int main(){
+
+    int n = 5;
+    vector<vector<int>> ans = pascalTriangle(n);
+    for(auto it : ans){
+        for(auto ele : it){
+            cout << ele << " ";
+        }
+        cout << "n";
+    }
+    return 0;
+}
 int main(){
   return 0;
 }
